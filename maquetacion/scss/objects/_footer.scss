@@ -1,0 +1,82 @@
+/*------------------------------------*\
+$FOOTER
+\*------------------------------------*/
+.no-touch {
+    .site-footer {
+        .contacto--foo {
+            opacity: .5;
+            transition: all 300ms;
+            &:hover {
+                opacity: 1;
+            }
+        }
+        .by-reactor {
+            svg {
+                opacity: .5;
+                transition: all 300ms;
+            }
+            &:hover {
+                svg {
+                    opacity: 1;
+                }
+            }
+        }
+    }
+}
+.site-footer {
+    background: $main;
+    padding: 15px;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+    position: relative;
+    z-index: $level2;
+    .logo--foo {
+        width: 120px;
+        height: 30px;
+        img {
+            width: 100%;
+            height: 100%;
+            display: block;
+        }
+    }
+    .column-flex {
+        display: flex;
+        flex-flow: row wrap;
+    }
+    .contacto--foo {
+        transition: all 300ms;
+        @include font-size(16px, 26px);
+        color: white;
+        @extend .medium;
+        display: flex;
+        flex-flow: row wrap;
+        svg {
+            width: 20px;
+            height: 12px;
+            margin-top: 7px;
+            fill: white;
+            display: block; 
+            margin-right: 5px;
+        }
+    }
+    .by-reactor {
+        margin-left: 22px;
+        position: relative;
+        &::after {
+            content: '';
+            width: 2px;
+            height: 15px;
+            position: absolute;
+            left: -12px;
+            top: 50%;
+            transform: translate(0, -50%);
+            background: white;
+            opacity: .5;
+        }
+        svg {
+            width: 12px;
+            height: 12px;
+        }
+    }
+}

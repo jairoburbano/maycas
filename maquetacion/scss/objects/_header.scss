@@ -1,0 +1,333 @@
+/*------------------------------------*\
+$HEADER
+\*------------------------------------*/
+.no-touch {
+    .header {
+        .menu--bottom {
+            .nav {
+                a {
+                    transition: all 300ms;
+                    position: relative;
+                    &.current-menu-item, &.current-page-ancestor {
+                        @include respond-to(desktop) {
+                            &::after {
+                                content: '';
+                                position: absolute;
+                                bottom: -4px;
+                                left: 0;
+                                width: 100%;
+                                height: 3px;
+                                background: $secundario;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        .menu--bottom {
+            .language-bar { 
+                a {
+                    transition: all 300ms;
+                    &:hover {
+                        opacity: 1;
+                        svg {
+                            opacity: 1;
+                        }
+                    }
+                    svg {
+                        transition: all 300ms;
+                        opacity: .5;
+                    }
+                }
+            }
+        }
+    }
+}
+.header {
+    box-shadow: 0px 1px 5px 0px rgba(50, 50, 50, 0.3);
+    position: fixed;
+    z-index: $level10;
+    background: $main;
+    width: 100%;
+    left: 0;
+    top: 0;
+    @include respond-to(desktop) {
+        display: flex;
+        flex-flow: row wrap;
+        justify-content: space-between;
+    }
+    &.menu--fixed {
+        @include respond-to(desktop) {
+            height: 48px;
+            overflow: hidden;
+            .menu--top {
+                height: 38px;
+                padding: 5px 40px;
+                .logo {
+                    height: 38px;
+                    margin-top: 5px;
+                }
+            }
+            .menu--bottom {
+                .nav {
+                    padding-top: 18px;
+                }
+                .language-bar {
+                    opacity: 0;
+                    top: -50px;
+                }
+            }
+        }
+    }
+    .menu--top {
+        height: 50px;
+        background: $main;
+        padding: 11px 15px;
+        display: flex;
+        flex-flow: row wrap;
+        justify-content: space-between;
+        position: relative;
+        z-index: $level2;
+        align-items: center;
+        @include respond-to(tablet) {
+            height: 70px;
+            padding: 12px 40px;
+        }
+        @include respond-to(desktop) {
+            height: 84px;
+            width: 280px;
+            transition: all 300ms;
+            background: $main;
+        }
+        .logo {
+            width: 110px;
+            height: 28px;
+            @include respond-to(tablet) {
+                width: 146px;
+                height: 37px;
+            }
+            @include respond-to(desktop) {
+                width: 200px;
+                height: 62px;
+                transition: all 300ms;
+            }
+            img {
+                width: 100%;
+                height: 100%;
+            }
+        }
+        .icon--mobile {
+            display: flex;
+            flex-flow: row wrap;
+            justify-content: flex-end;
+            align-items: center;
+            @include font-size(14px, 25px);
+            color: white;
+            @extend .medium;
+            @include respond-to(tablet) {
+                @include font-size(16px, 30px);
+            }
+            @include respond-to(desktop) {
+                display: none;
+            }
+            &.open--menu {
+                @extend .medium;
+                .icon {
+                    .bar {
+                        margin-left: 3px;
+                        &:first-child {
+                            transform-origin: top left;
+                            transform: rotate(25deg);
+                        }
+                        &:nth-child(2) {
+                            opacity: 0;
+                        }
+                        &:last-child {
+                            transform-origin: bottom left;
+                            transform: rotate(-25deg);
+                        }
+                    }
+                }
+            }
+            .icon {
+                width: 34px;
+                height: 25px;
+                border-radius: 2px;
+                border: 2px solid white;
+                padding: 2px;
+                margin-left: 10px;
+                @include respond-to(tablet) {
+                    width: 38px;
+                    height: 30px;
+                    padding: 3px;
+                }
+                .bar {
+                    width: 23px;
+                    height: 2px;
+                    margin: 3px auto;
+                    background: white;
+                    transition: all 300ms;
+                    @include respond-to(tablet) {
+                        width: 26px;
+                        margin: 3.5px auto;
+                    }
+                }
+            }
+        }
+    }
+    .menu--bottom {
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: $level1;
+        padding-top: 115px;
+        background: rgba($secundario, .9);
+        width: 100%;
+        display: none;
+        height: 100vh;
+        @include respond-to(tablet) {
+            padding-top: 200px;
+        }
+        @include respond-to(desktop) {
+            padding-top: 0;
+            position: relative;
+            top: auto;
+            left: auto;
+            display: block;
+            width: calc(100% - 280px);
+            background-color: transparent;
+            padding-right: 25px;
+            height: auto;
+        }
+        .nav {
+            width: 100%;
+            @include respond-to(desktop) {
+                display: flex;
+                flex-flow: row wrap;
+                justify-content: flex-end;
+                padding-top: 54px;
+                transition: all 300ms;
+            }
+            a {
+                @include font-size(26px, 31px);
+                color: white;
+                @extend .medium;
+                display: block;
+                text-align: center;
+                width: 100%;
+                margin: 15px 0;
+                @include respond-to(tablet) {
+                    @include font-size(40px, 48px);
+                    margin: 30px 0;
+                }
+                @include respond-to(desktop) {
+                    @include font-size(16px, 26px);
+                    margin: 0 15px;
+                    width: auto;
+                }
+            }
+        }
+        .language-bar {
+            display: flex;
+            flex-flow: row wrap;
+            justify-content: center;
+            width: 100%;
+            position: absolute;
+            bottom: 80px;
+            left: 0;
+            @include respond-to(tablet) {
+                margin-top: 150px;
+                position: relative;
+                bottom: auto;
+                left: auto;
+            }
+            @include respond-to(desktop) {
+                margin-top: 0;
+                position: absolute;
+                top: 16px;
+                right: 30px;
+                width: auto;
+                transition: all 300ms;
+            }
+            a {
+                color: white;
+                margin: 0 10px;
+                @include font-size(12px, 26px);
+                opacity: .5;
+                @include respond-to(tablet) {
+                    @include font-size(18px, 34px);
+                }
+                @include respond-to(desktop) {
+                    @include font-size(13px, 16px);
+                }
+                svg {
+                    max-height: 14px;
+                    max-width: 14px;
+                    fill: white;
+                    @include respond-to(tablet) {
+                        max-height: 21px;
+                        max-width: 21px;
+                    }
+                    @include respond-to(desktop) {
+                        max-height: 16px;
+                        max-width: 16px;
+                    }
+                }
+            }
+            .separador {
+                width: 1px;
+                height: 26px;
+                background: $secundario10;
+                margin: 0 10px;
+                @include respond-to(tablet) {
+                    height: 34px;
+                }
+                @include respond-to(desktop) {
+                    height: 20px;
+                }
+            }
+        }
+        .contacto-bar {
+            transition: all 300ms;
+            @include font-size(16px, 26px);
+            color: white;
+            @extend .medium;
+            display: flex;
+            flex-flow: row wrap;
+            justify-content: center;
+            width: 100%;
+            position: absolute;
+            bottom: 25px;
+            left: 0;
+            @include respond-to(tablet) {
+                display: none;
+            }
+            svg {
+                width: 20px;
+                height: 12px;
+                margin-top: 7px;
+                fill: white;
+                display: block; 
+                margin-right: 5px;
+            }
+        }
+    }
+}
+.single-post {
+    .header .menu--bottom .nav a {
+        &:last-child {
+            color: white;
+            @include respond-to(desktop) {
+                &::after {
+                    content: '';
+                    position: absolute;
+                    bottom: -4px;
+                    left: 0;
+                    width: 100%;
+                    height: 3px;
+                    background: $secundario;
+                }
+            }
+        }
+    }
+}

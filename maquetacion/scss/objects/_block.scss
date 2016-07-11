@@ -1,0 +1,16 @@
+/*------------------------------------*\
+    		$BLOCK
+\*------------------------------------*/
+.block--flex {
+    display: flex;
+    flex-flow: row wrap
+}
+.block--full {
+    width: 100%;
+}
+.block--half {
+    width: 100%;
+    @include respond-to(desktop) {
+        width: 50%;
+    }
+}

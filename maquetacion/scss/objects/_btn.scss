@@ -1,0 +1,29 @@
+/*------------------------------------*\
+    		$BTN
+\*------------------------------------*/
+.no-touch {
+    .btn--border {
+        &:hover {
+            background: white;
+            color: $principal;
+        }
+    }
+}
+.btn {
+    height: 30px;
+    width: 115px;
+    @include font-size(15px, 26px);
+    text-align: center;
+    color: white;
+    display: block;
+    margin: auto;
+    @extend .medium;
+    @include respond-to(desktop) {
+        margin: 0;
+    }
+    &.btn--border {
+        border: 2px solid white;
+        border-radius: 6px;
+        transition: all 300ms;
+    }
+}

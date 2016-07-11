@@ -1,0 +1,173 @@
+/*------------------------------------*\
+$CONTACTO
+\*------------------------------------*/
+.no-touch {
+    .contacto .contacto__container .contacto__form .send-group .btn {
+        transition: all 300ms;
+        &:hover {
+            background: $main;
+            color: white;
+        }
+    }
+}
+.contacto {
+    @include respond-to(desktop) {
+        max-width: 700px;
+        margin: auto;
+    }
+    .contacto__container {
+        .contacto__form {
+            width: 100%;
+            @include respond-to(tablet) {
+                display: flex;
+                flex-flow: row wrap;
+            }
+            .column {
+                @include respond-to(tablet) {
+                    width: 50%;
+                    padding: 0 15px;
+                }
+            }
+            .input-group {
+                margin-bottom: 23px;
+                position: relative;
+                &.error {
+                    input, .style-select, textarea {
+                        border-color: #faced3;
+                    }
+                    p.error {
+                        display: block;
+                    }
+                }
+                &.form-valid {
+                    label {
+                        color: #00afaa;
+                    }
+                    input, .style-select, textarea {
+                        border-color: #00afaa;
+                    }
+                }
+                p.error {
+                    position: absolute;
+                    bottom: -40px;
+                    left: 0;
+                    background: #faced3;
+                    color: #a50e24;
+                    height: 36px;
+                    @include font-size(15px, 36px);
+                    padding: 0 10px;
+                    border-radius: 5px;
+                    z-index: $level2;
+                    &::after {
+                        content: '';
+                        width: 0;
+                        height: 0;
+                        border-style: solid;
+                        border-width: 0 4px 10px 4px;
+                        border-color: transparent transparent #faced3 transparent;
+                        position: absolute;
+                        top: -10px;
+                        left: 24px;
+                    }
+                }
+                label {
+                    display: block;
+                    @extend .medium;
+                }
+                input, select, textarea {
+                    height: 40px;
+                    border: 1px solid #cac8c8;
+                    border-radius: 0;
+                    padding: 0 10px;
+                    @include font-size(16px, 38px);
+                    width: 100%;
+                    &:focus {
+                        outline: none;
+                    }
+                }
+                .style-select {
+                    position: relative;
+                    &.msg-error {
+                        padding: 0;
+                        position: relative;
+                        display: block;
+                        top: 0;
+                        left: 0;
+                        bottom: 0;
+                        .msg-error {
+                            padding: 0;
+                        }
+                    }
+                    svg {
+                        fill: principal;
+                        position: absolute;
+                        right: 10px;
+                        top: 15px;
+                        width: 8px;
+                        height: 8px;
+                        z-index: $level1;
+                    }
+                    select {
+                        outline:none;
+                        display: inline-block;
+                        -webkit-appearance:none;
+                        -moz-appearance:none;
+                        appearance:none;
+                        cursor:pointer;
+                        position: relative;
+                        z-index: $level2;
+                        background-color: transparent;
+                    }
+                }
+                textarea {
+                    height: 124px;
+                    @include font-size(16px, 20px);
+                    padding: 10px;
+                    resize: none;
+                }
+            }
+            .send-group {
+                .btn {
+                    width: 74px;
+                    height: 34px;
+                    border-radius: 6px;
+                    border: 1px solid $main;
+                    @include font-size(16px, 32px);
+                    text-align: center;
+                    display: block;
+                    margin: 0 0 0 auto;
+                    background-color: transparent;
+                    color: $main;
+                    padding: 0;
+                }
+            }
+        }
+    }
+}
+.message {
+    position: fixed;
+    top: 0;
+    left: 0;
+    background: rgba(white, .9);
+    width: 100%;
+    height: 100%;
+    z-index: $level4;
+    .message__content {
+        width: 90%;
+        max-width: 550px;
+        @include center;
+        text-align: center;
+        background: $main;
+        color: white;
+        padding: 20px;
+        h1 {
+            margin-bottom: 20px;
+        }
+        .btn {
+            margin: auto;
+            background-color: transparent;
+            padding: 0;
+            margin-top: 50px;
+        }
+    }
+}

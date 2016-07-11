@@ -1,0 +1,494 @@
+/*------------------------------------*\
+$VALLES
+\*------------------------------------*/
+.no-touch {
+    .vinedos {
+        .vinedo__item {
+            .vinedo__icon {
+                &:hover {
+                    svg {
+                        fill: $main;
+                        .change {
+                            fill: $secundario;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+.vinedos {
+    background: $secundario10;
+    position: relative;
+    margin-bottom: 50px;
+    &::after {
+        content: '';
+        position: absolute;
+        bottom: -56px;
+        height: 56px;
+        width: 100%;
+        left: 0;
+        background: url(../img/patron.svg) repeat-x;
+    }
+    .sub-title {
+        color: $secundario;
+    }
+    .mapa {
+        display: none;
+        @include respond-to(tablet) {
+            display: block;
+            padding: 0 15px 0 25px;
+        }
+        img {
+            width: 100%;
+        }
+    }
+    .vinedo__container {
+        position: relative;
+        display: block;
+    }
+    .vinedo__item {
+        padding: 0 40px 40px 20px;
+        @include respond-to(tablet) {
+            width: 100px;
+            height: 75px;
+            transition: all 300ms;
+            position: absolute;
+            padding: 0;
+        }
+        &.vinedo-1 {
+            @include respond-to(tablet) {
+                left: 34%;
+                top: 10%;
+            }
+        }
+        &.vinedo-2 {
+            @include respond-to(tablet) {
+                left: 45%;
+                top: 25%;
+            }
+        }
+        &.vinedo-3 {
+            @include respond-to(tablet) {
+                left: 42%;
+                top: 61%;
+            }
+        }
+        &.vinedo-4 {
+            @include respond-to(tablet) {
+                left: 54%;
+                top: 58%;
+            }
+        }
+        &.open {
+            .vinedo__icon {
+                @include respond-to(tablet) {
+                    z-index: $level2;
+                    svg {
+                        fill: $main;
+                        .change {
+                            fill: $secundario;
+                        }
+                    }
+                }
+            }
+        }
+        .vinedo__close {
+            display: none;
+            width: 40px;
+            height: 40px;
+            position: absolute;
+            z-index: $level3;
+            top: -80px;
+            right: -240px;
+            img {
+                width: 100%;
+                display: block;
+            }
+        }
+        .vinedo__icon {
+            display: none;
+            @include respond-to(tablet) {
+                display: block;
+                width: 100px;
+                text-align: center;
+                color: $main;
+                @extend .medium;
+                cursor: pointer;
+                position: relative;
+            }
+            svg {
+                fill: $secundario;
+                @include respond-to(tablet) {
+                    width: 34px;
+                    margin: auto;
+                    display: block;
+                    transition: all 300ms;
+                }
+                @include respond-to(tablet) {
+                    width: 42px;
+                }
+            }
+        }
+        .vinedo__lightbox {
+            @include respond-to(tablet) {
+                display: none;
+                background: white;
+                position: absolute;
+                border-radius: 10px;
+                border: 1px solid $secundario;
+                width: 360px;
+                top: -30px;
+                left: -20px;
+                padding: 20px 20px 20px 145px;
+                z-index: $level1;
+            }
+            @include respond-to(desktop) {
+                padding: 30px 30px 30px 195px;
+                width: 500px;
+                top: -30px;
+                left: -35px;
+            }
+            .vinedo__title {
+                color: $main;
+                @include font-size(20px, 24px);
+            }
+            .vinedo__ubicacion {
+                margin-bottom: 0;
+            }
+            .vinedo__suelo {
+                strong {
+                    color: $secundario;
+                }
+            }
+        }
+    }
+}
+.video--inside {
+    width: 100%;
+    position: relative;
+    overflow: hidden;
+    margin-bottom: 30px;
+    .video__imagen {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        min-height: 100%;
+    }
+    .banner__video {
+        width: 100%;
+    }
+    .video__controls {
+        @include center;
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+        .video__play {
+            @include center;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            svg {
+                fill: white;
+                width: 40px;
+                height: 40px;
+                @include respond-to(tablet) {
+                    width: 120px;
+                    height: 120px;
+                }
+            }
+        }
+        .video__play-bar {
+            position: absolute;
+            bottom: 15px;
+            left: 5%;
+            width: 20px;
+            height: 20px;
+            margin-bottom: 0;
+            @include respond-to(tablet) {
+                width: 36px;
+                height: 36px;
+                bottom: 32px;
+            }
+            svg {
+                width: 100%;
+                height: 100%;
+                fill: white;
+            }
+        }
+        .mute-bar {
+            position: absolute;
+            bottom: 16px;
+            right: 5%;
+            width: 20px;
+            height: 20px;
+            opacity: .5;
+            transition: all 300ms;
+            @include respond-to(tablet) {
+                width: 36px;
+                height: 36px;
+                bottom: 32px;
+            }
+            &:hover {
+                opacity: 1;
+            }
+            button {
+                width: 100%;
+                height: 100%;
+                position: absolute;
+                z-index: 1;
+                opacity: 0;
+                top: 0;
+                left: 0;
+            }
+            svg {
+                width: 100%;
+                height: 100%;
+                fill: white;
+                position: relative;
+            }
+        }
+        .seek-bar {
+            position: absolute;
+            bottom: 20px;
+            width: calc(90% - 80px);
+            left: calc(5% + 40px);
+            height: 4px;
+            background: rgba(white, .3);
+            @include respond-to(tablet) {
+                bottom: 46px;
+                width: calc(90% - 122px);
+                left: calc(5% + 56px);
+            }
+            input {
+                width: 100%;
+                opacity: 0;
+                position: absolute;
+                left: 0;
+                top: 0;
+                height: 4px;
+            }
+            .seek-done {
+                content: '';
+                position: absolute;
+                left: 0;
+                top: 0;
+                height: 4px;
+                width: 0;
+                background: white;
+            }
+        }
+    }
+}
+.valle__content {
+    padding: 0 15px;
+    @include respond-to(tablet) {
+        padding: 0;
+        max-width: 100%;
+        margin: auto;
+    }
+    .bajada {
+        text-align: center;
+        margin-bottom: 30px;
+        padding: 0 20px;
+    }
+}
+.galerias {   
+    &:nth-child(2n) {
+        .caracteristica {
+            .top__content {
+                @include respond-to(desktop) {
+                    left: calc(60% + 40px);
+                    right: auto;
+                    text-align: left;
+                }
+            }
+            .caracteristica__content {
+                @include respond-to(desktop) {
+                    flex-flow: row wrap;
+                }
+                .flex-control-nav {
+                    @include respond-to(desktop) {
+                        left: calc(100% + 41px);
+                        right: auto;
+                    }
+                }
+                .flex-direction-nav {
+                    @include respond-to(desktop) {
+                        justify-content: flex-start;
+                        left: calc(100% + 25px);
+                        right: auto;
+                    }
+                    .flex-nav-prev {
+                        @include respond-to(desktop) {
+                            margin-left: 0 !important;
+                        }
+                    }
+                }
+            }
+        }
+    }
+    &:nth-child(2n + 1) {
+        .caracteristica {
+            background: $secundario10;
+            @include respond-to(tablet) {
+                padding-top: 10px;
+            }
+        }
+    }
+    .caracteristica {
+        padding-bottom: 40px;
+        padding-top: 20px;
+        @include respond-to(desktop) {
+            padding: 35px 0;
+        }
+        .top__content {
+            margin-bottom: 10px;
+            @include respond-to(desktop) {
+                text-align: right;
+                width: calc(40% - 80px);
+                position: absolute;
+                right: calc(60% + 40px);
+                top: 50%;
+                transform: translate(0, -50%);
+            }
+            h2 {
+                margin-bottom: 35px;
+            }
+        }
+        .caracteristica__content {
+            padding: 0 15px;
+            overflow: hidden;
+            @include respond-to(tablet) {
+                padding: 0 45px;
+                position: relative;
+            }
+            @include respond-to(desktop) {
+                display: flex;
+                flex-flow: row-reverse wrap;
+                width: 100%;
+            }
+            .gallery {
+                @include respond-to(tablet) {
+                    padding-right: 45px;
+                    position: relative;
+                }
+                @include respond-to(desktop) {
+                    padding-right: 0;
+                    width: 60%;
+                }
+                .slides {
+                    li {
+                        display: block;
+                        @include aspect-ratio(1.51, 1)
+                            background-size: cover;
+                        background-position: center;
+                    }
+                }
+            }
+        }
+        .flex-control-nav {
+            text-indent: 9999em;
+            display: flex;
+            flex-flow: row wrap;
+            padding-top: 20px;
+            padding-left: 10px;
+            width: 50%;
+            float: left;
+            z-index: 2;
+            @include respond-to(tablet) {
+                width: 45px;
+                position: absolute;
+                position: absolute;
+                right: -5px;
+                bottom: 12px;
+                padding: 0 5px;
+            }
+            @include respond-to(desktop) {
+                right: calc(100% + 41px);
+            }
+            li {
+                width: 5px;
+                height: 5px;
+                border-radius: 50%;
+                overflow: hidden;
+                margin-right: 5px;
+                cursor: pointer;
+                @include respond-to(tablet) {
+                    margin-bottom: 5px;
+                }
+                @include respond-to(desktop) {
+                    margin-bottom: 0;
+                }
+                a {
+                    background: #cac8c8;
+                    transition: all 300ms;
+                    display: block;
+                    &.flex-active {
+                        background: $secundario;
+                    }
+                }
+            }
+        }
+        .flex-direction-nav {
+            display: flex;
+            flex-flow: row wrap;
+            padding-right: 10px;
+            padding-top: 5px;
+            width: 50%;
+            float: right;
+            justify-content: flex-end;
+            @include respond-to(tablet) {
+                display: block;
+                position: absolute;
+                top: 50%;
+                right: 0;
+                width: 45px;
+                transform: translate(0, -50%);
+            }
+            @include respond-to(desktop) {
+                right: 100%;
+                transform: translate(0, 0);
+                padding-right: 30px;
+                top: auto;
+                bottom: 15px;
+                display: flex;
+                flex-flow: row wrap;
+                justify-content: flex-end;
+                width: 40%;
+            }
+            li {
+                width: 15px;
+                height: 20px;
+                margin-left: 20px;
+                cursor: pointer;
+                @include respond-to(desktop) {
+                    &:first-child {
+                        margin-left: 0 !important;
+                    }
+                }
+                @include respond-to(tablet) {
+                    margin: 0 auto 45px;
+                }
+                @include respond-to(desktop) {
+                    width: 14px;
+                    height: 14px;
+                    margin: 0;
+                }
+                a {
+                    display: block;
+                    width: 15px;
+                    height: 20px;
+                }
+                svg {
+                    display: block;
+                    width: 100%;
+                    height: 100%;
+                }
+            }
+        }
+    }
+}

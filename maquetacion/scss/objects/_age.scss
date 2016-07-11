@@ -1,0 +1,109 @@
+/*------------------------------------*\
+$AGE
+\*------------------------------------*/
+.page-age {
+    padding-top: 0;
+    min-height: 400px;
+    .design {
+        margin-top: 0;
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: $level2;
+        opacity: .5;
+        &.design--bottom {
+            top: auto;
+            bottom: 50px;
+            position: relative;
+        }
+    }
+}
+.age__container {
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-image: url(../assets/bg1-home.jpg);
+    min-height: 400px;
+}
+.age-check {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background: rgba($main, .7);
+    min-height: 400px;    
+    .age__content {
+        position: absolute;
+        top: 20%;
+        left: 50%;
+        transform: translate(-50%, 0);
+        z-index: 2;
+        color: white;
+        font-size: 16px;
+        line-height: 22px;
+        width: 100%;
+        max-width: 550px;
+        margin: auto;
+        text-align: center;
+        @include respond-to(tablet) {
+            top: 20%;
+            font-size: 20px;
+            line-height: 31px;
+        }
+        h1 {
+            color: white;
+            @include less-than(tablet) {
+                padding: 15px 0;
+                margin-bottom: 0;
+            }
+        }
+        strong {
+            text-transform: uppercase;
+            font-family: 'thesanssemibold_caps';
+        }
+        img {
+            width: 40%;
+            @include respond-to(tablet) {
+                width: auto;
+            }
+        }
+        .age__text {
+            width: 100%;
+            max-width: 370px;
+            padding: 0 10px;
+            margin: 0px auto 0;
+            @include respond-to(tablet) {
+                margin: 40px auto 0;
+            }
+        }
+        .age__buttons {
+            text-align: center;
+            margin-top: 10px;
+            display: flex;
+            flex-flow: wrap row;
+            justify-content: center;
+            @include respond-to(tablet) {
+                margin-top: 30px;
+            }
+            .btn {
+                margin: 0 8px;
+                transition: all 300ms;
+                width: auto;
+                display: inline-table;
+                padding: 0 10px;
+                &:hover {
+                    background: white;
+                    color: $main;
+                }
+            }
+        }
+    }
+}
+.title__age {
+    margin-top: 10px;
+    strong {
+        font-size: 20px;
+        line-height: 24px;
+    }
+}

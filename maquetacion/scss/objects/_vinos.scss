@@ -1,0 +1,689 @@
+/*------------------------------------*\
+$VINOS
+\*------------------------------------*/
+.no-touch {
+    .inside-menu {
+        a {
+            img {
+                opacity: .5;
+                transition: opacity 300ms;
+                -webkit-backface-visibility: hidden;
+            }
+            &:hover, &.active {
+                img {
+                    opacity: 1;
+                }
+            }
+        }
+    }
+    .vinos__container {
+        .vinos__item {
+            @each $vinos, $color in $vinos {
+                &.#{$vinos} {
+                    .vino__slide {
+                        .slides {
+                            .item__vino {
+                                &:hover {
+                                    &::after {
+                                        opacity: 1;
+                                    }
+                                }
+                                &::after {
+                                    content: '';
+                                    width: 100%;
+                                    max-width: 300px;
+                                    height: 90%;
+                                    background: url(../img/vino-effect/#{$vinos}.png) center no-repeat;
+                                    background-size: 100%;
+                                    @include center;
+                                    z-index: $level1;
+                                    opacity: 0;
+                                    transition: all 300ms;
+                                }
+                                > a {
+                                    position: relative;
+                                    z-index: $level2;
+                                    display: block;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            .vino__slide {
+                .slides {
+                    .item__vino {
+                        position: relative;
+                        &:hover {
+                            .item__title {
+                                color: $main;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+    .recomendados {
+        .recomendados__slide {
+            .slides {
+                .recomendados__item {
+                    @each $vinos, $color in $vinos {
+                        &.#{$vinos} {
+                            .recomendados__content {
+                                .recomendados__vino {
+                                    position: relative;
+                                    &:hover {
+                                        &::after {
+                                            opacity: 1;
+                                        }
+                                        .recomendados__title {
+                                            color: $main;
+                                        }
+                                    }
+                                    &::after {
+                                        content: '';
+                                        width: 100%;
+                                        max-width: 300px;
+                                        height: 90%;
+                                        background: url(../img/vino-effect/#{$vinos}.png) center no-repeat;
+                                        background-size: 100%;
+                                        @include center;
+                                        z-index: $level1;
+                                        opacity: 0;
+                                        transition: all 300ms;
+                                    }
+                                    .recomendados__media {
+                                        position: relative;
+                                        z-index: $level2;
+                                        display: block;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+    .content--single-vino {
+        .bottom__content {
+            .descargas {
+                a {
+                    transition: all 300ms;
+                    &:hover {
+                        color: $main;
+                    }
+                }
+            }
+        }
+    }
+}
+.page--container {
+    @include respond-to(tablet) {
+        padding-top: 65px;
+        position: relative;
+    }
+}
+.inside-menu {
+    display: none;
+    @include respond-to(tablet) {
+        width: 100%;
+        display: flex;
+        flex-flow: row wrap;
+        justify-content: space-around;
+        height: 65px;
+        box-shadow: 0px 1px 5px 0px rgba(50, 50, 50, 0.3);
+        position: absolute;
+        left: 0;
+        top: 0;
+        background: white;
+        z-index: $level3;
+        a {
+            height: 65px;
+            flex: auto;
+            position: relative;
+            &:nth-child(2) {
+                flex: 1.5;
+            }
+            &:last-child {
+                &::after {
+                    display: none;
+                }
+            }
+            &::after {
+                content: '';
+                width: 1px;
+                height: 30px;
+                position: absolute;
+                right: 0;
+                top: 50%;
+                transform: translate(0, -50%);
+                background: $secundario;
+                opacity: .5;
+            }
+            img {
+                max-height: 40px;
+                max-width: calc(100% - 80px);
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%) translateZ(0) scale(1.0, 1.0);
+            }
+        }
+    }
+}
+.vinos__container {
+    .vinos__item {
+        margin-bottom: 30px;
+        &:first-child {
+            .vinos__header {
+                .vino__logo {
+                    img {
+                        width: 185px;
+                    }
+                }
+            }
+        }
+        &:nth-child(2) {
+            .vinos__header {
+                @include respond-to(tablet) {
+                    max-width: 860px;
+                }
+                .vino__logo {
+                    @include respond-to(desktop) {
+                        width: 280px;
+                        max-width: 280px;
+                        padding-right: 20px;
+                    }
+                    img {
+                        width: 100%;
+                        max-width: 250px;
+                    }
+                }
+                .vino__descripcion {
+                    @include respond-to(tablet) {
+                        padding-left: 300px;
+                    }
+                }
+            }
+        }
+        &:last-child {
+            margin-bottom: 0;
+            .vinos__header {
+                .vino__logo {
+                    img {
+                        width: 190px;
+                    }
+                }
+            }
+        }
+        .vinos__header {
+            padding: 0 15px;
+            position: relative;
+            @include respond-to(tablet) {
+                display: flex;
+                flex-flow: row wrap;
+                padding: 45px 45px 0;
+            }
+            @include respond-to(desktop) {
+                max-width: 800px;
+                margin: auto;
+            }
+            .vino__logo {
+                display: block;
+                max-width: 250px;
+                max-height: 80px;
+                margin: 10px auto 40px;
+                position: relative;
+                @include respond-to(tablet) {
+                    width: 240px;
+                    margin-top: 20px;
+                    position: absolute;
+                    top: 50%;
+                    left: 45px;
+                    transform: translate(0, -50%);
+                }
+                &::after {
+                    content: '';
+                    position: absolute;
+                    left: 50%;
+                    bottom: -20px;
+                    width: 60px;
+                    height: 1px;
+                    background: $secundario;
+                    transform: translate(-50%, 0);
+                    opacity: .5;
+                    @include respond-to(tablet) {
+                        width: 1px;
+                        height: 60px;
+                        bottom: auto;
+                        top: 50%;
+                        left: auto;
+                        right: 0;
+                        transform: translate(0, -50%);
+                    }
+                }
+                img {
+                    max-height: 100%;
+                    max-width: 100%;
+                    margin: auto;
+                    display: block;
+                    @include respond-to(tablet) {
+                        max-width: calc(100% - 40px);
+                    }
+                }
+            }
+            .vino__descripcion {
+                text-align: center;
+                margin-bottom: 20px;
+                @include respond-to(tablet) {
+                    margin-bottom: 0;
+                    padding-left: 280px;
+                    flex: 1;
+                    text-align: left;
+                }
+            }
+        }
+        .vino__slide {
+            padding: 40px 0 0;
+            background: linear-gradient(to bottom, rgba(255,255,255,1) 0%, rgba(241,241,241,1) 100%);
+            position: relative;
+            @include respond-to(tablet) {
+                padding: 90px 0 60px;
+            }
+            .slides {
+                @include respond-to(tablet) {
+                    display: flex;
+                    flex-flow: row wrap;
+                    max-width: 1050px;
+                    margin: auto;
+                }
+                .item__vino {
+                    padding-bottom: 30px;
+                    @include respond-to(tablet) {
+                        width: calc(100% / 3);
+                    }
+                    .item__logo {
+                        display: block;
+                        margin: auto;
+                        max-width: 140px;
+                        height: 60px;
+                        margin-bottom: 10px;
+                        img {
+                            max-height: 100%;
+                            max-width: 100%;
+                            margin: auto;
+                            display: block;
+                        }
+                    }
+                    .item__bottle {
+                        height: 340px;
+                        width: 100%;
+                        img {
+                            width: auto;
+                            height: 100%;
+                            display: block;
+                            margin: auto;
+                        }
+                    }
+                    .item__title {
+                        @include font-size(16px, 26px);
+                        @extend .medium;
+                        color: $secundario;
+                        text-align: center;
+                        display: block;
+                        width: 100%;
+                        transition: all 300ms;
+                    }
+                }
+            }
+            .flex-nav-prev, .flex-nav-next {
+                position: absolute;
+                top: 50%;
+                left: 20px;
+                transform: translate(0, -50%);
+                width: 16px;
+                height: 16px;
+                a, svg {
+                    width: 100%;
+                    height: 100%;
+                    display: block;
+                }
+            }
+            .flex-nav-next {
+                left: auto;
+                right: 20px;
+            }
+        }
+    }
+}
+.content--single-vino {
+    background: #f1f1f1;
+    position: relative;
+    margin-bottom: 50px;
+    &::after {
+        content: '';
+        position: absolute;
+        bottom: -56px;
+        height: 56px;
+        width: 100%;
+        left: 0;
+        background: url(../img/patron.svg) repeat-x;
+    }
+    .vino__content {
+        position: relative;
+        @include respond-to(tablet) {
+            display: flex;
+            flex-flow: row wrap;
+            padding-top: 50px;
+            position: relative;
+        }
+        @include respond-to(desktop) {
+            max-width: 1100px;
+            margin: auto;
+        }
+    }
+    .single__media {
+        position: relative;
+        margin-bottom: 20px;
+        @include respond-to(tablet) {
+            width: 40%;
+            height: 500px;
+        }
+        @include respond-to(desktop) {
+            width: 30%;
+        }
+        .single__year {
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 100%;
+            text-align: center;
+            z-index: $level1;
+            @include font-size(77px, 93px);
+            @extend .medium;
+            color: #cac8c8;
+            opacity: .4;
+            @include respond-to(tablet) {
+                @include font-size(120px, 140px);
+                top: -20px;
+            }
+        }
+        .single__bottle {
+            position: relative;
+            z-index: $level2;
+            margin: auto;
+            display: block;
+            height: 360px;
+            padding-top: 60px;
+            @include respond-to(tablet) {
+                height: 560px;
+            }
+        }
+        .single__logo {
+            @include center;
+            z-index: $level1;
+            @include respond-to(tablet) {
+                width: 90%;
+                max-width: 240px;
+                padding-top: 30px;
+            }
+        }
+    }
+    .single__content {
+        padding: 0 15px;
+        @include respond-to(tablet) {
+            width: 60%;
+        }
+        @include respond-to(desktop) {
+            width: 70%;
+            padding-left: 110px;
+            padding-right: 0;
+        }
+        h1 {
+            @include respond-to(desktop) {
+                @include font-size(35px, 42px);
+                margin-bottom: 20px;
+            }
+        }
+        .single__descripcion {
+            padding-top: 30px;
+            @include respond-to(tablet) {
+                padding-right: 30px;
+            }
+            @include respond-to(desktop) {
+                padding-right: 0;
+            }
+            .column {
+                @include respond-to(desktop) {
+                    display: flex;
+                    flex-flow: row wrap;
+                }
+                &:last-child {
+                    .descripcion__item {
+                        @include respond-to(desktop) {
+                            padding-right: 0;
+                        }
+                    }
+                }
+            }
+            .descripcion__item {
+                position: relative;
+                padding: 10px 0;
+                display: block;
+                @include respond-to(tablet) {
+                    padding: 15px 0;
+                }
+                @include respond-to(desktop) {
+                    width: 50%;
+                    padding-right: 15px;
+                }
+                .description__image {
+                    position: absolute;
+                    top: 5px;
+                    left: 0;
+                    width: 30px;
+                    height: 30px;
+                    @include respond-to(desktop) {
+                        top: 10px;
+                    }
+                    img {
+                        max-width: 30px;
+                        max-height: 30px;
+                        width: 26px;
+                        display: block;
+                        @include center;
+                    }
+                }
+                .description__text {
+                    padding-left: 50px;
+                    @include font-size(15px, 20px);
+                }
+            }
+        }
+    }
+    .bottom__content {
+        padding: 0 15px;
+        @include respond-to(tablet) {
+            display: flex;
+            flex-flow: row wrap;
+            padding: 40px 45px 0;
+        }
+        @include respond-to(desktop) {
+            max-width: 1100px;
+            margin: auto;
+            padding: 40px 0 0;
+        }
+        .descargas {
+            @include font-size(16px, 26px);
+            @extend .medium;
+            @include respond-to(tablet) {
+                position: absolute;
+                left: 0;
+                top: 630px;
+                width: 40%;
+            }
+            @include respond-to(desktop) {
+                position: relative;
+                left: auto;
+                top: auto;
+                width: 170px;
+                margin: 0 40px 0 80px;
+                &::after {
+                    content: '';
+                    width: 2px;
+                    height: 60px;
+                    right: -40px;
+                    top: 30px;
+                    background: #cac8c8;
+                    position: absolute;
+                    opacity: .5;
+                }
+            }
+            .icon {
+                color: $secundario;
+                text-align: center;
+                width: 100%;
+                img {
+                    width: 35px;
+                    height: 35px;
+                    margin: auto;
+                    display: block;
+                }
+            }
+            a {
+                color: $principal;
+                text-align: center;
+                display: block;
+                position: relative;
+                padding-bottom: 30px;
+                &::after {
+                    content: '';
+                    width: 50px;
+                    height: 6px;
+                    position: absolute;
+                    bottom: 15px;
+                    left: 50%;
+                    transform: translate(-50%, 0);
+                    background: $principal;
+                    opacity: .4;
+                }
+            }
+        }
+        .vino__logo {
+            width: 118px;
+            height: 118px;
+            margin: 40px auto 25px;
+            @include respond-to(desktop) {
+                margin: 0 0 0 40px;
+            }
+        }
+        .explicacion {
+            padding-bottom: 50px;
+            @include respond-to(tablet) {
+                padding-left: 40px;
+                flex: 1;
+                margin-top: -3px;
+            }
+        }
+    }
+}
+.recomendados {
+    .recomendados__slide {
+        position: relative;
+        padding-top: 30px;
+        .slides {
+            @include respond-to(tablet) {
+                display: flex;
+                flex-flow: row wrap;
+            }
+            .recomendados__item {
+                @include respond-to(tablet) {
+                    flex: 1;
+                    position: relative;
+                    &::after {
+                        content: '';
+                        height: 140px;
+                        width: 6px;
+                        background: #cac8c8;
+                        position: absolute;
+                        top: 40px;
+                        right: -3px;
+                        opacity: .5;
+                    }
+                    &:last-child {
+                        &::after {
+                            display: none;
+                        }
+                    }
+                }
+                &.here {
+                    @include respond-to(tablet) {
+                        flex: .6666;
+                    }
+                }
+                .recomendados__content {
+                    display: flex;
+                    flex-flow: row wrap;
+                    padding: 0 30px;
+                    @include respond-to(tablet) {
+                        padding: 0 20px;
+                    }
+                    .recomendados__vino {
+                        flex: 1;
+                        .recomendados__media {
+                            height: 210px;
+                            display: block;
+                            @include respond-to(desktop) {
+                                height: 280px;
+                            }
+                            img {
+                                height: 100%;
+                                display: block;
+                                margin: auto;
+                            }
+                        }
+                        .recomendados__title {
+                            @include font-size(12px, 24px);
+                            color: $secundario;
+                            text-align: center;
+                            display: block;
+                            transition: all 300ms;
+                        }
+                    }
+                }
+                .recomendados__logo {
+                    margin: auto;
+                    height: 30px;
+                    display: block;
+                    width: 100%;
+                    margin-top: 30px;
+                    position: relative;
+                    img {
+                        max-height: 30px;
+                        margin: auto;
+                        display: block;
+                        @include center;
+                    }
+                }
+            }
+        }
+        .flex-nav-prev, .flex-nav-next {
+            position: absolute;
+            top: 35%;
+            left: 20px;
+            width: 16px;
+            height: 16px;
+            a, svg {
+                width: 100%;
+                height: 100%;
+                display: block;
+            }
+        }
+        .flex-nav-next {
+            left: auto;
+            right: 20px;
+        }
+    }
+}

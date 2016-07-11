@@ -1,0 +1,112 @@
+/*------------------------------------*\
+$MAIN
+\*------------------------------------*/
+html, body {
+    height: 100%;
+    font-family: 'fira_sansregular';
+    color: $principal;
+}
+body {
+    padding-top: 50px;
+    @include respond-to(tablet) {
+        padding-top: 70px;
+    }
+    @include respond-to(desktop) {
+        padding-top: 84px;
+    }
+}
+.noscroll {
+    overflow: hidden;
+}
+.page-wrap {
+    min-height: 100%;
+    margin-bottom: -60px;/* equal to Footer height */
+    &::after {
+        content: "";
+        display: block;
+    }
+}
+.site-footer, .page-wrap::after {
+    height: 60px; 
+}
+h1, h2, h3, h4, h5, h6, strong {
+    @extend .medium;
+    font-weight: normal;
+}
+h1 {
+    @include font-size(26px, 31px); 
+    @include respond-to(tablet) {
+        @include font-size(40px, 48px);
+    }
+    @include respond-to(desktop) {
+        @include font-size(50px, 60px); 
+    }
+}
+h2 {
+    @include font-size(30px, 36px); 
+    @include respond-to(desktop) {
+        @include font-size(35px, 42px); 
+    }
+}
+h3 {
+    @include font-size(20px, 26px); 
+    @include respond-to(desktop) {
+        @include font-size(26px, 31px); 
+    }
+}
+h4 {
+    @include font-size(20px, 24px); 
+}
+strong {
+    @include font-size(16px, 26px); 
+}
+p {
+    @include font-size(15px, 26px); 
+    display: block;
+    margin-bottom: 15px;
+    &:last-child {
+        margin-bottom: 0;
+    }
+    &.special {
+        color: $main;
+    }
+}
+.title {
+    @include font-size(30px, 36px); 
+    @include respond-to(desktop) {
+        @include font-size(16px, 26px); 
+        text-transform: uppercase;
+    }
+}
+.subtitle {
+    @include font-size(18px, 21px);
+}
+.sub-title {
+    color: $main;
+    text-align: center;
+    padding: 30px 0;
+    margin-bottom: 15px;
+    background: url(../img/title.svg) center bottom no-repeat;
+    &.color {
+        color: $secundario;
+    }
+}
+img {
+    max-width: 100%;
+}
+.design {
+    background: url(../img/patron.svg) left top repeat;
+    width: 100%;
+    height: 50px;
+    margin-top: 40px;
+    @include respond-to(tablet) {
+        margin-top: 60px;
+    }
+    &.especial {
+        @include respond-to(tablet) {
+            position: absolute;
+            bottom: 60px;
+            left: 0;
+        }
+    }
+}
